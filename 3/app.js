@@ -59,7 +59,6 @@ function primeFactorial(num) {
 	// return primeFactors[primeFactors.length - 1];
 	console.log('Prime Factors:', primeFactors);
 	return primeFactors.last();
-
 };
 
 primeFactorial(600851475143);

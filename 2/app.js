@@ -6,7 +6,7 @@
 // By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 // find the sum of the even-valued terms.
 
-(function fib() {
+function fib(num) {
 	var array 	= [1,2],
 			counter = 1;
 
@@ -14,7 +14,7 @@
 		array[counter + 1] = array[counter] + array[counter - 1];
 		counter += 1;
 
-		if(array[array.length - 1] > 4000000) {
+		if(array[array.length - 1] > num) {
 			array.pop()
 			var length = array.length,
 					sum  	 = 0;
@@ -25,4 +25,6 @@
 			}
 		}
 	}
-})();
+};
+
+fib(4000000);
