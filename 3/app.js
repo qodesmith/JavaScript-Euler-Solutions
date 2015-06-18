@@ -11,32 +11,31 @@
 // 			13  // Next divisible prime #.
 // 			29  // Final answer because it's a prime #.
 
-// *** JAVASCRIPT WILL CRASH WITH A NUMBER AS LARGE AS 600851475143. ***
-function findPrimes(num) {
-	var sqrt  = Math.sqrt(num);
-	var array = [];
+function primeFactorial(num) {
+	var sqrt   = Math.sqrt(num),
+			array  = [];
 
-	// Create an array populated from 2 to num (prime # range).
-	for(var i = 2; i <= sqrt; i++) {
-		array.push(i);
+	// Prime number checking function.
+	// Only accounts for positive, whole numbers.
+	function isPrime(n) {
+		var root 		= Math.sqrt(n);
+
+		if(n === 2) { return true };
+		if(n < 2 === 0) { return false };
+
+		for(var i = 2; i <= root; i++) {
+			if(n % i === 0) { return false }
+		}
+
+		return true;
 	}
 
-	function filterType(array, type) {
-		return array.filter(function(element) {
-			return element.constructor.name === type ? element : false;
-		});
-	};
-
-	// Seive of Eratosthenes prime number formula.
-	// https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-	// Filter out all non-prime numbers using filterType above.
-	for(var j = 0; j < array.length; j++) {
-		for(var k = j + 1; k < array.length; k++) {
-			if(array[k] % array[j] === 0) {
-				array[k] = 'X';
-			}
+	// Create an array populated with prime #'s from 2 to sqrt.
+	for(var i = 2; i <= sqrt; i++) {
+		var root = Math.sqrt(i);
+		if(isPrime(i)) {
+			array.push(i);
 		}
-		array = filterType(array, 'Number');
 	}
 
 	// Create an array containing the prime factors.
@@ -58,6 +57,9 @@ function findPrimes(num) {
 	
 	// return index[index.length - 2];
 	// return primeFactors[primeFactors.length - 1];
+	console.log('Prime Factors:', primeFactors);
 	return primeFactors.last();
 
 };
+
+primeFactorial(600851475143);

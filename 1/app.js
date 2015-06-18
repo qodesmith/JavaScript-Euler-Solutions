@@ -3,7 +3,7 @@
 // Find the sum of all the multiples of 3 or 5 below 1000.
 
 // This solution works with ANY number.
-function findMultiples(num) {
+(function findMultiples(num) {
 	var total  = 0;
 
 	for(var i = 1; i < num; i++) {
@@ -11,4 +11,4 @@ function findMultiples(num) {
 	}
 
 	return total;
-};
+})();
