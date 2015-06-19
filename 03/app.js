@@ -18,12 +18,14 @@ function primeFactorial(num) {
 	// Prime number checking function.
 	// Only accounts for positive, whole numbers.
 	function isPrime(n) {
-		var root 		= Math.sqrt(n);
+		var root = Math.sqrt(n);
 
-		if(n === 2) { return true };
-		if(n < 2 === 0) { return false };
+		if(n === 2) { return true }; // 2 is always prime.
+		if(n < 2) { return false }; // Anything below 2 is not prime.
+		if(n % 2 === 0) { return false }; // Even numbers (besides 2 above) are never prime.
 
-		for(var i = 2; i <= root; i++) {
+		// Iterate every other, skipping even #'s.
+		for(var i = 3; i <= root; i += 2) {
 			if(n % i === 0) { return false }
 		}
 
@@ -32,7 +34,6 @@ function primeFactorial(num) {
 
 	// Create an array populated with prime #'s from 2 to sqrt.
 	for(var i = 2; i <= sqrt; i++) {
-		var root = Math.sqrt(i);
 		if(isPrime(i)) {
 			array.push(i);
 		}
