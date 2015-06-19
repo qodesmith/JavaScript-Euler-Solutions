@@ -1,4 +1,4 @@
-// A palindromic number reads the same both ways.
+  // A palindromic number reads the same both ways.
 // The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
 
 // Find the largest palindrome made from the product of two 3-digit numbers.
@@ -28,7 +28,8 @@ function palindrome(num) {
 		return nString === nReversed ? true : false;
 	}
 
-	// Find the largest palindrome
+	// Find the largest palindrome.
+  // This is the slowest part of the script.
 	for(var j = highNum; j > 0; j--) {
 		for(var k = highNum; k > 0; k--) {
 			var product = j * k;
